@@ -14,7 +14,7 @@ pipeline {
         stage('Set up Python') {
             steps {
                 // Install dependencies
-                sh '''
+                bat '''
                 $PYTHON -m venv venv
                 . venv/bin/activate
                 pip install --upgrade pip
@@ -27,7 +27,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // Run your test suite, for example with pytest
-                sh '''
+                bat '''
                 . venv/bin/activate
                 if [ -f pytest.ini ] || [ -d tests ]; then
                   pytest
@@ -39,11 +39,11 @@ pipeline {
         }
     }
 
-    
+
     post {
         always {
             // Clean up virtualenv after job finishes
-            sh 'rm -rf venv'
+            bat 'rm -rf venv'
         }
     }
 }
