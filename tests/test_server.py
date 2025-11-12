@@ -1,4 +1,4 @@
-"""Tests for the Jenkins MCP Server."""
+﻿"""Tests for the Jenkins MCP Server."""
 
 import pytest
 from jenkins_mcp.server import JenkinsMCPServer
@@ -30,7 +30,7 @@ def test_process_tool_call_get_jenkins_status(server):
     """Test processing get_jenkins_status tool call."""
     result = server.process_tool_call(
         "get_jenkins_status",
-        {"jenkins_url": "http://localhost:8080"}
+        {"jenkins_url": "http://localhost:8081"}
     )
     assert result["success"] is True
     assert result["result"]["status"] == "healthy"
@@ -40,7 +40,7 @@ def test_process_tool_call_list_jobs(server):
     """Test processing list_jobs tool call."""
     result = server.process_tool_call(
         "list_jobs",
-        {"jenkins_url": "http://localhost:8080"}
+        {"jenkins_url": "http://localhost:8081"}
     )
     assert result["success"] is True
     assert "jobs" in result["result"]
