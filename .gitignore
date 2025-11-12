@@ -34,3 +34,9 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Local environment file (may contain credentials)
+.env
+
+# Local ref test script
+refTest.py
